@@ -204,7 +204,7 @@ if (form) {
 
         fetch(scriptURL, {
             method: 'POST',
-            body: new FormData(form)
+            body: new URLSearchParams(new FormData(form))
         })
             .then(response => {
                 // Restore button
