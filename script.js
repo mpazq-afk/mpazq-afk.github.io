@@ -202,16 +202,10 @@ if (form) {
         submitBtn.textContent = 'Enviando...';
         submitBtn.classList.add('loading');
 
-        const formData = new FormData(form);
-        const urlParams = new URLSearchParams();
-
-        for (const [key, value] of formData.entries()) {
-            urlParams.append(key, value);
-        }
-
         fetch(scriptURL, {
             method: 'POST',
-            body: urlParams
+            mode: 'no-cors',
+            body: new FormData(form)
         })
             .then(response => {
                 // Restore button
