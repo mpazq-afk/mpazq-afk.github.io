@@ -187,7 +187,7 @@ if (dynamicText && staticText) {
 }
 
 // Form Submission to Google Sheets
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzKzdDIjRO4ftsKSFHSE9c6RlfBRuWAgHGtVKyK92ZTR61Zl6V9AaqASP-P9yesw99S/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxqVE9jQoEUBXW6dno2XQKRVI9ZoQKi5xOBAWXwyz6ae1H6pMOoIKAYAD3Aac-QaLJr/exec';
 const form = document.querySelector('.apply-form');
 const submitBtn = document.getElementById('submit-btn');
 const modal = document.getElementById('success-modal');
