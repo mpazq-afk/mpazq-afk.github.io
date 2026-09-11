@@ -84,12 +84,18 @@ el currículum a una persona no — y el evento "Encuentro FEN Investment Woman"
   oculta, así que "Comunidad ▾" se dejó como "Equipo" suelto. Para portar un cambio hay
   que llevar **solo el bloque tocado** y verificar después que el nav siga intacto.
   Casi siempre son TRES tramos separados: el `<style>`, el markup y el `<script>`.
-- **Acá se publican CUATRO áreas** (PRT · Portafolio, TRD · Trading, VAL · Valuation,
-  ADM · Administración), no cinco. El `h-sec` dice "Cuatro desks" y el stat
-  "5 Áreas especializadas" de `fig-web` **no se aplica acá**.
-- **ADM es `data-desk`/`view="3"`, no `"4"`** — este repo no tiene panel FIW.
-- En `portafolio/` y `trading/`, la frase "junto a … y FEN Investment Woman" se cambió a
-  **"entre otras"**.
+- **El sitio dice CINCO áreas** (decisión de Francisco, 2026-09-03): el `h-sec` dice
+  "Cinco desks", el stat `data-target="5"` y el Capítulo II "cinco áreas especializadas".
+  FIG Woman **cuenta** para el número aunque su página, panel y enlaces sigan fuera del
+  espejo — el número no la nombra. Acá el Capítulo II **no enumera** las áreas (fig-web
+  sí las lista con FEN Investment Woman).
+- **ADM es `data-desk`/`view="3"`, no `"4"`** — este repo no tiene panel FIW, así que hay
+  4 paneles de desk (PRT/TRD/VAL/ADM) aunque el número diga cinco.
+- En `portafolio/`, `trading/` y `valuation/`, el `<h3>` de la tarjeta "Origen" dice
+  "Una de las áreas fundadoras" y el `<p>` termina en **"entre otras"** (sin nombrar a
+  FEN Investment Woman). Lo hace `despublicar_fiw.py`.
+- En `en/index.html`, la tarjeta "Area 04 · FEN Investment Woman" se quita y
+  Administración pasa de "Area 05" a "Area 04"; el stat "5 practice areas" queda.
 - **`MAPA_CONTENIDO_FIG.html` tiene dos scripts propios de Manuel** que limpian la URL
   (le sacan `/index.html` y el `#`). Está en `NO_SE_COPIAN`: copiar la versión de
   `fig-web` se los borraría.
