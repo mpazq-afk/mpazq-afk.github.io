@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portafolio — FIG</title>
 <meta name="description" content="Portafolio: el área de FEN Investment Group dedicada a la gestión de carteras, la asignación de activos y el control de riesgo. Es el área que dirige el Torneo Portafolio 2026. Universidad de Chile.">
-<meta name="theme-color" content="#061A33">
+<meta name="theme-color" content="#0A0A0A">
 <link rel="canonical" href="https://feninvestmentgroup.com/portafolio/">
 <meta property="og:url" content="https://feninvestmentgroup.com/portafolio/">
 <meta property="og:title" content="Portafolio — FIG">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Portafolio — FIG">
 <meta name="twitter:description" content="Gestión de carteras, control de riesgo y el Torneo Portafolio 2026 en FEN Investment Group.">
 <meta name="twitter:image" content="/og-image.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23061A33'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23FF7A00'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230A0A0A'/%3E%3Ccircle cx='50' cy='50' r='34' fill='%23FF7A00'/%3E%3C/svg%3E">
 <!-- Tipografias autoalojadas: antes esto eran dos preconnect y una
      hoja de estilos de fonts.googleapis.com, que bloqueaba la primera
      pintada y le mandaba la IP de cada visitante a Google. Las genera
@@ -67,6 +67,19 @@
      gris claro sobre el navy, y pinta el lienzo en blanco antes de la primera
      pintada: en un sitio 100% oscuro se ve como un destello o una barra blanca. */
   color-scheme:dark;
+  /* PALETA "NEGRO BLACKROCK" (2026-10-21, elegida por Francisco entre cuatro
+     lecturas de la vitrina de rediseño): el navy pasa a negro y el marfil a la
+     crema #F5F5EB que BlackRock usa en sus paneles; el naranja de Itaú se
+     queda igual y gana contraste (7.58 sobre negro contra 6.68 sobre navy).
+     Así los dos sponsors quedan en un solo gesto: estructura negra y crema de
+     BlackRock (el universo del torneo son ETF iShares) con el acento de Itaú.
+     Los nombres --navy* se mantienen a propósito (ver el párrafo de abajo):
+     hoy valen negro. Medido sobre los valores nuevos:
+       --acc        sobre --navy   7.58   --acc-light sobre --navy 10.19
+       --bmk        sobre --navy   7.94   --bmk sobre --navy-panel  7.32
+       --acc-deep   sobre --ivory  5.33   --acc-chroma sobre --ivory 4.55
+       --ink-soft   sobre --ivory  6.81   --bmk-deep sobre --ivory   4.85
+     Lo que sigue es la historia de la paleta anterior ("Itaú terminal"). */
   /* PALETA PROPIA DE PORTAFOLIO — decisión de la directiva (2026-09-02),
      retocada el 2026-09-05 ("Itaú terminal"): mismo anclaje navy+naranja de
      Itaú, pero navy más saturado y naranja llevado a su tono de marca real
@@ -90,11 +103,11 @@
                     --acc-deep, solo para texto ≥24px)
        --bmk        sobre --navy   7.00  AAA (sube porque el navy se oscureció;
                     el azul en sí no cambió) */
-  --navy-deep:#030D1A; --navy:#061A33; --navy-panel:#0A2748;
+  --navy-deep:#000000; --navy:#0A0A0A; --navy-panel:#161514;
   --acc:#FF7A00;          /* naranja Itaú (tono de marca, sin atemperar) */
   --acc-light:#FFA64D;    /* naranja claro         */
-  --acc-deep:#AC4E00;     /* naranja profundo      */
-  --acc-chroma:#BB4E0A;   /* naranja display sobre crema — más rojo que --acc-deep,
+  --acc-deep:#A84800;     /* naranja profundo — 5.33 sobre la crema */
+  --acc-chroma:#BB4E0A;   /* 4.55 sobre la crema #F5F5EB; naranja display sobre crema — más rojo que --acc-deep,
                              solo para texto grande (≥24px): itálicas del título y .mrow-n */
   --acc-warm:#FFB870;     /* naranja cálido        */
   --acc-dim:rgba(255,122,0,.34);
@@ -116,9 +129,13 @@
   --bmk:#7BA7DE;         /* azul ACWI sobre fondo oscuro */
   --bmk-deep:#3C6DA8;    /* azul ACWI sobre fondo claro  */
   --bmk-faint:rgba(123,167,222,.16);
-  --ivory:#F4F6FA; --paper:#EFEDE6; --ink:#0E1420; --ink-soft:#565C68;
-  --line-l:rgba(14,20,32,.13); --line-d:rgba(255,122,0,.2);
-  --f-disp:"Playfair Display",Georgia,serif;
+  --ivory:#F5F5EB; --paper:#ECEBE0; --ink:#0A0A0A; --ink-soft:#57554C;
+  --line-l:rgba(10,10,10,.13); --line-d:rgba(255,122,0,.2);
+  /* Títulos: Archivo variable en ancho condensado (font-stretch en .hero h1,
+     .h-sec y compañía), como los titulares de BlackRock. Playfair queda de
+     respaldo solo si fuentes/fig.css no carga. */
+  --f-disp:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --disp-w:72%;
   --f-body:"Inter",-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono","SF Mono",monospace;
   --wrap:1180px; --ease:cubic-bezier(.22,.61,.21,1);
@@ -135,7 +152,7 @@
 html{scroll-behavior:smooth;scrollbar-gutter:stable}
 section[id]{scroll-margin-top:80px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}}
-body{background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-stretch:var(--disp-w);background:var(--navy);color:var(--ivory);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--acc);color:var(--navy)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -145,10 +162,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 .kicker{font-family:var(--f-mono);font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--acc);display:flex;align-items:center;gap:14px}
 .kicker::before{content:"";width:34px;height:1px;background:var(--acc);opacity:.7;flex:none}
-.h-sec{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.1;letter-spacing:-.012em;margin:18px 0 0}
-.h-sec em{font-style:italic;color:var(--acc)}
-.section--light .h-sec em{color:var(--acc-chroma)}
-.lead{font-size:1.05rem;color:rgba(244,246,250,.78);max-width:58ch}
+.h-sec{font-family:var(--f-disp);font-stretch:var(--disp-w);font-weight:760;font-size:clamp(2.2rem,4.8vw,3.6rem);line-height:1.02;letter-spacing:-.008em;margin:18px 0 0;text-wrap:balance}
+.h-sec em{font-style:normal;color:inherit}
+.section--light .h-sec em{color:inherit}
+.lead{font-size:1.05rem;color:rgba(245,245,235,.78);max-width:58ch}
 .section--light .lead{color:var(--ink-soft)}
 .mono-tag{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc-dim);border-radius:100px;padding:5px 13px;display:inline-block}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;padding:15px 30px;border-radius:2px;transition:transform .4s var(--ease),box-shadow .4s,background .35s,color .35s,border-color .35s;white-space:nowrap}
@@ -157,8 +174,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .btn--ghost{border:1px solid var(--acc-dim);color:var(--ivory)}
 .btn--ghost:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
 .btn--navy{background:var(--navy);color:var(--acc)}
-.btn--navy:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(6,26,51,.6)}
-.btn.is-off{background:transparent;border:1px dashed var(--acc-dim);color:rgba(244,246,250,.5);cursor:default;pointer-events:none}
+.btn--navy:hover{transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(10,10,10,.6)}
+.btn.is-off{background:transparent;border:1px dashed var(--acc-dim);color:rgba(245,245,235,.5);cursor:default;pointer-events:none}
 .section--light .btn.is-off{color:var(--ink-soft)}
 /* sobre fondo claro el fantasma quedaba color marfil sobre marfil (invisible) */
 .section--light .btn--ghost{color:var(--ink);border-color:var(--line-l)}
@@ -183,13 +200,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 /* Nav */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 0;transition:padding .4s var(--ease),background .4s,border-color .4s;border-bottom:1px solid transparent}
-.nav.scrolled{padding:12px 0;background:rgba(3,13,26,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-d)}
+.nav.scrolled{padding:12px 0;background:rgba(0,0,0,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line-d)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:13px}
 .brand-name{font-family:var(--f-disp);font-weight:600;font-size:1.02rem;line-height:1.15}
 .brand-sub{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--acc);display:block;margin-top:2px}
 .nav__links{display:flex;align-items:center;gap:30px;list-style:none}
-.nav__links a{font-size:.84rem;font-weight:500;color:rgba(244,246,250,.82);padding:6px 0;position:relative;transition:color .3s}
+.nav__links a{font-size:.84rem;font-weight:500;color:rgba(245,245,235,.82);padding:6px 0;position:relative;transition:color .3s}
 .nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav__links a:hover,.nav__links a.active{color:var(--acc)}
 .nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
@@ -207,7 +224,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .nav__drop:hover .nav__drop-menu,.nav__drop:focus-within .nav__drop-menu{
   opacity:1;visibility:visible;transform:translate(-50%,0);
 }
-.nav__drop-menu a{display:block;padding:11px 14px;font-size:.82rem;color:rgba(244,246,250,.85);white-space:nowrap}
+.nav__drop-menu a{display:block;padding:11px 14px;font-size:.82rem;color:rgba(245,245,235,.85);white-space:nowrap}
 .nav__drop-menu a::after{display:none}
 .nav__drop-menu a:hover{background:var(--acc-faint);color:var(--acc)}
 .nav__burger{display:none;flex-direction:column;gap:5.5px;padding:8px;z-index:1101}
@@ -222,7 +239,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
    la pantalla, sin barra que arrastrar. Con flex-start + márgenes automáticos
    en los extremos queda igual de centrado mientras sobre espacio, y se
    scrollea entero cuando no. */
-.m-menu{position:fixed;inset:0;background:rgba(3,13,26,.97);backdrop-filter:blur(12px);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;overflow-y:auto;overscroll-behavior:contain;padding:24px 20px}
+.m-menu{position:fixed;inset:0;background:rgba(0,0,0,.97);backdrop-filter:blur(12px);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s;overflow-y:auto;overscroll-behavior:contain;padding:24px 20px}
 .m-menu>:first-child{margin-top:auto}
 .m-menu>:last-child{margin-bottom:auto}
 .m-menu.open{opacity:1;visibility:visible}
@@ -309,13 +326,13 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .hero-say::before{content:"";position:absolute;inset:-9% -13% -11% -46%;z-index:-1;
   pointer-events:none;
   background:radial-gradient(76% 68% at 36% 46%,
-    rgba(6,26,51,.93) 0%,rgba(6,26,51,.78) 38%,rgba(6,26,51,.34) 64%,transparent 80%)}
+    rgba(10,10,10,.93) 0%,rgba(10,10,10,.78) 38%,rgba(10,10,10,.34) 64%,transparent 80%)}
 /* En una columna el texto ocupa todo el ancho y el velo se comeria el campo
    entero: ahi basta con que baje el ruido justo detras del titulo. */
 @media(max-width:980px){
   .hero-say::before{inset:-6% -18%;
     background:radial-gradient(88% 52% at 44% 30%,
-      rgba(6,26,51,.88) 0%,rgba(6,26,51,.6) 44%,transparent 78%)}
+      rgba(10,10,10,.88) 0%,rgba(10,10,10,.6) 44%,transparent 78%)}
 }
 /* Los puntos del campo son las carteras dominadas, pero a 1265px se leian
    como polvo sobre la pantalla. Bajarlos deja las CURVAS como la figura y
@@ -338,7 +355,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 /* ---- El plano ---- */
 .plano{position:relative;border:1px solid var(--acc-dim);border-right:none;border-radius:3px 0 0 3px;
-  background:linear-gradient(205deg,rgba(10,39,72,.86),rgba(3,13,26,.92));
+  background:linear-gradient(205deg,rgba(22,21,20,.86),rgba(0,0,0,.92));
   padding:15px 16px 13px;
   opacity:0;transform:translateY(22px);
   transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
@@ -347,7 +364,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .pl-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
   padding-bottom:11px;margin-bottom:9px;border-bottom:1px solid var(--acc-faint);flex-wrap:wrap}
 .pl-ttl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--acc)}
-.pl-when{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,246,250,.5)}
+.pl-when{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,245,235,.5)}
 .pl-svg svg{display:block;width:100%;height:auto}
 .pl-svg text{font-family:var(--f-mono);letter-spacing:.1em}
 .pl-svg circle{transition:opacity .25s}
@@ -355,28 +372,28 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .pl-svg circle.pt:hover{opacity:1}
 /* La regla dura del repo: ninguna cifra vive solo dentro de un SVG. El pie
    dice en texto lo mismo que el dibujo muestra. */
-.pl-foot{font-size:.76rem;line-height:1.6;color:rgba(244,246,250,.62);margin-top:10px}
+.pl-foot{font-size:.76rem;line-height:1.6;color:rgba(245,245,235,.62);margin-top:10px}
 .pl-foot b{color:var(--acc);font-weight:600;font-family:var(--f-mono);font-size:.8rem}
 
 /* ---- Columna de texto ---- */
-.hero h1{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.6rem,5.4vw,4.5rem);line-height:1.04;letter-spacing:-.018em;margin:18px 0 24px;max-width:14ch}
-.hero h1 em{font-style:italic;color:var(--acc)}
+.hero h1{font-family:var(--f-disp);font-stretch:68%;font-weight:800;font-size:clamp(2.9rem,6vw,5.2rem);line-height:.98;letter-spacing:-.01em;margin:18px 0 24px;max-width:13ch}
+.hero h1 em{font-style:normal;color:var(--acc)}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero h1 .ln>span{display:inline-block;transform:translateY(118%);transition:transform 1.05s cubic-bezier(.16,1,.3,1)}
 .hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
 body.hero-in .hero h1 .ln>span{transform:none}
-.hero__sub{max-width:46ch;font-size:1.04rem;color:rgba(244,246,250,.8);margin-bottom:32px}
+.hero__sub{max-width:46ch;font-size:1.04rem;color:rgba(245,245,235,.8);margin-bottom:32px}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
 /* Cifras del corte al pie del título: filete arriba y abajo, sin caja. Antes
    eran una "cinta" con borde propio flotando sobre el plano de fondo; con el
    plano ya presente como pieza, otra caja al lado era ruido. */
 .hero__meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));
-  border-top:1px solid rgba(244,246,250,.13);border-bottom:1px solid rgba(244,246,250,.13);
+  border-top:1px solid rgba(245,245,235,.13);border-bottom:1px solid rgba(245,245,235,.13);
   font-family:var(--f-mono);text-transform:uppercase}
 .hero__meta span{padding:13px 16px 12px;line-height:1.45;font-size:.56rem;letter-spacing:.18em;
-  color:rgba(244,246,250,.55);min-width:0}
+  color:rgba(245,245,235,.55);min-width:0}
 .hero__meta span:first-child{padding-left:0}
-.hero__meta span+span{border-left:1px solid rgba(244,246,250,.1)}
+.hero__meta span+span{border-left:1px solid rgba(245,245,235,.1)}
 .hero__meta b{display:block;color:var(--acc);font-weight:600;font-size:1.02rem;letter-spacing:.02em;
   margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hero__meta .hm-txt b{font-family:var(--f-disp);font-size:1.05rem;letter-spacing:0;text-transform:none}
@@ -391,7 +408,7 @@ body.hero-in .hero h1 .ln>span{transform:none}
   .hero__meta{grid-template-columns:repeat(2,1fr)}
   .hero__meta span{padding:12px 14px;font-size:.54rem;letter-spacing:.12em}
   .hero__meta span:nth-child(odd){padding-left:0;border-left:none}
-  .hero__meta span:nth-child(n+3){border-top:1px solid rgba(244,246,250,.1)}
+  .hero__meta span:nth-child(n+3){border-top:1px solid rgba(245,245,235,.1)}
   .hero__meta b{font-size:.95rem}
   /* Un nombre de equipo no se corta con puntos suspensivos: se envuelve. */
   .hero__meta .hm-txt b{white-space:normal;overflow:visible;line-height:1.15}
@@ -404,18 +421,18 @@ body.hero-in .hero h1 .ln>span{transform:none}
    este desk conoce: la cinta de un piso de operaciones. Las palabras siguen
    en el HTML como respaldo: si el ranking no carga, la cinta se ve como
    antes en vez de quedar vacía. */
-.marq{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:rgba(3,13,26,.72);overflow:hidden;position:relative;z-index:2}
+.marq{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:rgba(0,0,0,.72);overflow:hidden;position:relative;z-index:2}
 .marq__track{display:flex;width:max-content;animation:marquee 46s linear infinite}
 .marq:hover .marq__track{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(-50%)}}
-.mq{font-family:var(--f-disp);font-style:italic;font-size:1.05rem;color:rgba(244,246,250,.55);padding:14px 34px;white-space:nowrap;border-right:1px solid var(--acc-faint)}
+.mq{font-family:var(--f-disp);font-stretch:var(--disp-w);font-style:normal;font-size:1.05rem;color:rgba(245,245,235,.55);padding:14px 34px;white-space:nowrap;border-right:1px solid var(--acc-faint)}
 .mq b{color:var(--acc);font-weight:600}
 .tk{display:flex;align-items:baseline;gap:11px;padding:13px 26px;white-space:nowrap;
   border-right:1px solid var(--acc-faint);font-family:var(--f-mono)}
-.tk i{font-style:normal;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,246,250,.48)}
+.tk i{font-style:normal;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,245,235,.48)}
 .tk b{font-size:.84rem;font-weight:600;color:var(--acc);font-variant-numeric:tabular-nums}
 .tk--bmk b{color:var(--bmk)}
-.tk--txt b{font-family:var(--f-disp);font-style:italic;font-weight:600;font-size:.98rem}
+.tk--txt b{font-family:var(--f-disp);font-stretch:var(--disp-w);font-style:normal;font-weight:700;font-size:.98rem}
 
 /* Secciones */
 section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
@@ -435,7 +452,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
    de un subtitulo y se le da aire. */
 .drop{font-family:var(--f-disp);font-size:clamp(1.5rem,3.2vw,2.2rem);line-height:1.24;
   letter-spacing:-.01em;color:var(--ink);font-weight:500;margin-bottom:26px;max-width:18ch}
-.drop em{font-style:italic;color:var(--acc-deep)}
+.drop em{font-style:normal;color:var(--acc-deep)}
 .about-copy p:not(.drop){color:var(--ink-soft);margin-bottom:18px;font-size:1.02rem}
 .about-copy p b{color:var(--ink);font-weight:600}
 /* Ficha del area: eran tres tarjetas separadas con sombra propia; ahora es una
@@ -497,7 +514,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .p-body{position:relative;max-width:62ch}
 .pilar .p-num{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.3em;color:var(--acc);display:block;margin-bottom:9px}
 .pilar h3{font-family:var(--f-disp);font-size:clamp(1.4rem,3vw,1.95rem);font-weight:600;line-height:1.18;margin-bottom:9px}
-.pilar p{font-size:.97rem;color:rgba(244,246,250,.72)}
+.pilar p{font-size:.97rem;color:rgba(245,245,235,.72)}
 @media(max-width:560px){
   .pilar{grid-template-columns:1fr;gap:.4rem}
   /* En una columna el riel no encadena nada: caería encima del texto. */
@@ -516,7 +533,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .torneo-card::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 240px at 90% -10%,rgba(255,122,0,.18),transparent 60%);pointer-events:none}
 .torneo-card .mono-tag{margin-bottom:16px}
 .torneo-card h3{font-family:var(--f-disp);font-weight:600;font-size:1.7rem;line-height:1.16;position:relative;margin-bottom:12px}
-.torneo-card p{font-size:.95rem;color:rgba(244,246,250,.76);position:relative}
+.torneo-card p{font-size:.95rem;color:rgba(245,245,235,.76);position:relative}
 .torneo-card .tc-tag{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
 .torneo-card .tc-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(255,122,0,.5);animation:pulse 2.4s infinite}
 /* AUSPICIADORES DEL TORNEO (2026-09-04) — franja de logos pegada bajo la
@@ -578,18 +595,18 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .bd--s4{grid-column:span 4}
 .bd--s6{grid-column:span 6}
 .bd--s8{grid-column:span 8}
-.bd-k{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,246,250,.5)}
+.bd-k{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,245,235,.5)}
 /* Cifra principal en mono, que es la voz numérica de todo el sitio (el
    ranking, la pantalla de la facultad y el informe usan la misma). No va en
    la serif de los títulos: una cifra de dato no es un titular. */
 .bd-v{font-family:var(--f-mono);font-weight:600;font-size:clamp(1.7rem,4.4vw,2.6rem);
   line-height:1;letter-spacing:-.015em;color:var(--acc);font-variant-numeric:tabular-nums}
-.bd-v small{font-size:.42em;letter-spacing:.12em;color:rgba(244,246,250,.6);font-weight:500;margin-left:9px}
+.bd-v small{font-size:.42em;letter-spacing:.12em;color:rgba(245,245,235,.6);font-weight:500;margin-left:9px}
 /* El nombre de un equipo no es una cifra: usa la serif, se envuelve y no se
    corta. "Aconcagua Capital" no cabe en una línea a 390px. */
 .bd--lider .bd-v{font-family:var(--f-disp);font-size:clamp(1.6rem,4.6vw,2.8rem);
   line-height:1.08;letter-spacing:-.01em;overflow-wrap:anywhere}
-.bd-sub{font-size:.79rem;color:rgba(244,246,250,.6);line-height:1.5;margin-top:auto}
+.bd-sub{font-size:.79rem;color:rgba(245,245,235,.6);line-height:1.5;margin-top:auto}
 /* La celda del líder lleva un filete naranja al costado: es la única jerarquía
    del tablero que no depende del tamaño. */
 .bd--lider{box-shadow:inset 3px 0 0 0 var(--acc)}
@@ -602,9 +619,93 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
   .bd--s3,.bd--s4{grid-column:span 12}
 }
 
+/* ============================================================================
+   REDISEÑO 2026-10-21 (tanda 2) — piezas nuevas. Todas se apoyan en los mismos
+   tokens; ninguna trae un color que no esté en el :root salvo los del SVG,
+   que van escritos como en el resto de los gráficos de la página.
+   ============================================================================ */
+/* El condensado aprieta también el espacio entre palabras: "Gestionar la"
+   se leía "Gestionarla". */
+.hero h1,.h-sec,.drop,.tc-name,.solo h3{word-spacing:.09em}
+/* Cuenta regresiva al cierre (bases §4.2: cierre 2-nov; final 9-nov). */
+.cierre{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(245,245,235,.8);border:1px solid var(--acc-dim);
+  padding:7px 12px;margin-bottom:22px;max-width:100%}
+.cierre b{color:var(--acc);font-weight:600}
+.cierre i{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2.4s infinite;flex:none}
+/* Controles de la temporada bajo el plano */
+.pl-ctrl{display:flex;align-items:center;gap:10px;margin-top:8px;font-family:var(--f-mono);font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;color:rgba(245,245,235,.6)}
+.pl-ctrl button{border:1px solid var(--acc-dim);color:var(--acc);padding:6px 11px;font-family:var(--f-mono);
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.pl-ctrl button:hover{background:var(--acc-faint)}
+.pl-ctrl input{flex:1;min-width:60px;accent-color:#FF7A00}
+.pl-ctrl output{min-width:5.2em;text-align:right;font-variant-numeric:tabular-nums}
+/* Tablero del corte: celdas con un nombre de equipo en vez de una cifra */
+.bd--txt .bd-v{font-family:var(--f-disp);font-stretch:var(--disp-w);font-weight:760;
+  font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.08;overflow-wrap:anywhere;color:var(--ivory)}
+/* §Tu cartera */
+#tu-cartera{border-top:1px solid var(--line-d)}
+.tc-pick{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px}
+.tc-pick label{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,235,.6)}
+.tc-pick select{background:var(--navy-panel);color:var(--ivory);border:1px solid var(--acc-dim);padding:11px 14px;
+  font:inherit;font-size:.95rem;min-width:0;max-width:100%;border-radius:2px}
+.tc-pick button{border:1px solid var(--line-d);color:var(--ivory);padding:10px 14px;font-size:.82rem;border-radius:2px}
+.tc-pick button:hover{border-color:var(--acc);color:var(--acc)}
+.tc-msg{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;color:var(--acc);text-transform:uppercase;overflow-wrap:anywhere}
+.tc-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+@media(max-width:900px){.tc-grid{grid-template-columns:1fr}}
+.tc-a,.tc-b{background:var(--navy-panel);padding:24px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.tc-k{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,245,235,.5)}
+.tc-name{font-family:var(--f-disp);font-stretch:var(--disp-w);font-weight:780;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.02;overflow-wrap:anywhere}
+.tc-big{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.tc-big b{font-family:var(--f-disp);font-stretch:62%;font-weight:800;font-size:clamp(3rem,7vw,4.6rem);line-height:.9;color:var(--acc)}
+.tc-big span{font-family:var(--f-mono);font-size:.78rem;color:rgba(245,245,235,.62)}
+.tc-d{font-family:var(--f-mono);font-size:.74rem;color:rgba(245,245,235,.62)}
+.tc-d.up{color:#5FC08B}.tc-d.dn{color:#FF8A73}
+.tc-bars{display:flex;flex-direction:column;gap:10px}
+.tc-bar{display:grid;grid-template-columns:11.5em minmax(0,1fr) 6.4em;gap:10px;align-items:center;font-family:var(--f-mono);
+  font-size:.66rem;letter-spacing:.04em;color:rgba(245,245,235,.66)}
+.tc-bar .tr{height:8px;background:rgba(245,245,235,.07);position:relative}
+.tc-bar .tr i{position:absolute;top:0;bottom:0;left:0;background:var(--acc)}
+.tc-bar b{color:var(--ivory);font-weight:600;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tc-bar small{display:block;font-size:.9em;color:rgba(245,245,235,.5);font-weight:400}
+.tc-b svg{display:block;width:100%;height:auto}
+.tc-b p{font-size:.88rem;color:rgba(245,245,235,.72)}
+.tc-b p b{color:var(--acc);font-family:var(--f-mono);font-weight:600}
+@media(max-width:520px){.tc-bar{grid-template-columns:8.6em minmax(0,1fr) 5.8em}.tc-a,.tc-b{padding:20px 16px}}
+/* §Los 100 puntos en pestañas: cinco franjas de ~270 px pasaban a 1.400 px de scroll */
+.mt-tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line-l);margin-top:clamp(2.2rem,4.5vw,3.4rem)}
+.mt-tab{padding:12px 16px 11px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);border-bottom:2px solid transparent;margin-bottom:-1px;text-align:left}
+.mt-tab b{display:block;font-size:1.15rem;color:var(--ink);letter-spacing:0;margin-bottom:2px;font-variant-numeric:tabular-nums}
+.mt-tab:hover{color:var(--ink)}
+.mt-tab[aria-selected="true"]{border-bottom-color:var(--acc);color:var(--ink)}
+.mt-tab[aria-selected="true"] b{color:var(--acc-deep)}
+.mrows.as-tabs{margin-top:0;border-top:none}
+.mrows.as-tabs .mrow{border-bottom:none}
+.mt-top{margin-top:16px;display:flex;flex-direction:column;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-soft);padding:0}
+.mt-top li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line-l);padding:6px 0;list-style:none}
+.mt-top li b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.mt-top li.me{color:var(--ink);background:rgba(255,122,0,.08)}
+.mt-top li.gap{border-bottom:none;justify-content:center;padding:2px 0}
+/* ¿Y si solo contara una métrica? */
+.solo{margin-top:clamp(2.6rem,5vw,4rem);border:1px solid var(--line-l);background:var(--paper);padding:clamp(18px,3vw,28px)}
+.solo h3{font-family:var(--f-disp);font-stretch:var(--disp-w);font-weight:760;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.05;margin-top:12px}
+.solo>p{color:var(--ink-soft);font-size:.95rem;max-width:62ch;margin-top:8px}
+.solo-seg{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 12px}
+.solo-seg button{border:1px solid var(--line-l);padding:8px 12px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink);border-radius:2px}
+.solo-seg button:hover{border-color:var(--ink)}
+.solo-seg button[aria-pressed="true"]{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.solo-read{font-size:.95rem;color:var(--ink);min-height:2.8em}
+.solo-read b{color:var(--acc-deep)}
+.solo-svg{overflow-x:auto;margin-top:8px}
+.solo-svg svg{display:block;width:100%;max-width:780px;min-width:540px;height:auto;margin:0 auto}
+.solo-svg text{font-family:var(--f-mono);font-size:10.5px}
+
 .ch-card{border:1px solid var(--line-d);background:var(--navy-panel);padding:26px 24px 20px;margin-top:-1px}
 .ch-title{font-family:var(--f-disp);font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:600;line-height:1.2}
-.ch-note{font-size:.82rem;color:rgba(244,246,250,.62);max-width:66ch;margin-top:8px}
+.ch-note{font-size:.82rem;color:rgba(245,245,235,.62);max-width:66ch;margin-top:8px}
 /* Cifras de cierre escritas, no solo en el tooltip: en un teléfono el hover no
    existe, y un valor nunca puede depender de él (misma corrección que ya se
    había hecho en el gráfico del hero de index.html). */
@@ -613,7 +714,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .ch-cif{padding:12px 18px;min-width:0}
 .ch-cif+.ch-cif{border-left:1px solid var(--acc-faint)}
 .ch-cif span{display:block;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;
-  text-transform:uppercase;color:rgba(244,246,250,.55);margin-bottom:5px}
+  text-transform:uppercase;color:rgba(245,245,235,.55);margin-bottom:5px}
 .ch-cif b{font-family:var(--f-mono);font-size:1.02rem;font-weight:600;font-variant-numeric:tabular-nums}
 .ch-cif--fig b{color:var(--acc)}
 .ch-cif--bmk b{color:var(--bmk)}
@@ -627,16 +728,16 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .ch-plot svg{display:block;width:100%;height:auto}
 .ch-plot svg text{font-family:var(--f-mono);letter-spacing:.06em}
 .ch-tip{position:absolute;left:0;top:0;pointer-events:none;opacity:0;transition:opacity .14s;
-  background:rgba(3,13,26,.97);border:1px solid var(--acc-dim);border-radius:4px;padding:9px 12px;
+  background:rgba(0,0,0,.97);border:1px solid var(--acc-dim);border-radius:4px;padding:9px 12px;
   font-family:var(--f-mono);font-size:.66rem;line-height:1.75;white-space:nowrap;z-index:5;
   transform:translate(-50%,-116%)}
 .ch-tip.on{opacity:1}
 .ch-tip--abajo{transform:translate(-50%,16%)}
-.ch-tip u{display:block;text-decoration:none;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,250,.55);margin-bottom:3px}
+.ch-tip u{display:block;text-decoration:none;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,235,.55);margin-bottom:3px}
 .ch-tip .f{color:var(--acc)}
 .ch-tip .b{color:var(--bmk)}
 .ch-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,246,250,.66)}
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,235,.66)}
 .ch-legend span{display:inline-flex;align-items:center;gap:9px}
 .ch-legend i{width:17px;height:3px;border-radius:2px;flex:none}
 .ch-legend .sw-fig{background:var(--acc)}
@@ -653,8 +754,8 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
   font-family:var(--f-mono);font-size:.72rem;font-variant-numeric:tabular-nums}
 .ch-tabla th,.ch-tabla td{padding:7px 10px;border-bottom:1px solid var(--acc-faint);text-align:right;white-space:nowrap}
 .ch-tabla th:first-child,.ch-tabla td:first-child{text-align:left}
-.ch-tabla th{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,246,250,.55);font-weight:500}
-.ch-tabla td{color:rgba(244,246,250,.82)}
+.ch-tabla th{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,245,235,.55);font-weight:500}
+.ch-tabla td{color:rgba(245,245,235,.82)}
 .ch-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 
 /* ============================================================================
@@ -684,11 +785,11 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .al-seg{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
   padding:9px 12px;min-width:0;overflow:hidden;color:var(--navy);
   flex:0 0 0%;transition:flex-basis 1.1s var(--ease)}
-.al-seg+.al-seg{border-left:1px solid rgba(239,237,230,.55)}
+.al-seg+.al-seg{border-left:1px solid rgba(236,235,224,.55)}
 .alloc.in .al-seg{flex-basis:var(--w,0%)}
 .al-n{font-family:var(--f-mono);font-weight:600;font-size:1.05rem;line-height:1;font-variant-numeric:tabular-nums}
 .al-name{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;
-  margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(6,26,51,.72)}
+  margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(10,10,10,.72)}
 @media(max-width:760px){.al-name{display:none}.al-n{font-size:.86rem}}
 /* La clave de la barra, siempre en texto: una cifra no puede vivir solo dentro
    de una figura. Cuando la barra se angosta y los rótulos de adentro se
@@ -766,7 +867,7 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .avatar.has-photo{color:transparent}
 .p-name{font-family:var(--f-disp);font-weight:600;font-size:1.12rem;line-height:1.25}
 .p-role{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:4px}
-.p-extra{font-size:.84rem;color:rgba(244,246,250,.65);line-height:1.55}
+.p-extra{font-size:.84rem;color:rgba(245,245,235,.65);line-height:1.55}
 /* WCAG 2.2: medido a 390px, esta zona tocable no llegaba a 24px de alto.
    El padding la agranda y el margen negativo lo compensa exacto. */
 .p-link{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-top:auto;display:inline-flex;align-items:center;gap:6px;transition:gap .3s;padding:5px 3px;margin-left:-3px;margin-right:-3px;margin-bottom:-5px}
@@ -778,33 +879,33 @@ section{padding:clamp(5rem,9vw,8rem) 0;position:relative}
 .ev-card:hover{transform:translateY(-8px);border-color:rgba(255,122,0,.5);box-shadow:0 32px 64px -26px rgba(0,0,0,.65)}
 .ev-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);transition:transform 1.2s var(--ease);filter:saturate(.9)}
 .ev-card:hover .ev-bg{transform:scale(1.08)}
-.ev-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,26,51,.25) 0%,rgba(6,26,51,.55) 45%,rgba(3,13,26,.94) 100%)}
+.ev-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.55) 45%,rgba(0,0,0,.94) 100%)}
 .ev-ghost{position:absolute;top:-6px;right:10px;font-family:var(--f-disp);font-weight:700;font-size:clamp(4.5rem,8vw,6.5rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,122,0,.14);pointer-events:none;user-select:none}
 .ev-body{position:relative;padding:28px 28px 24px;display:flex;flex-direction:column;gap:12px}
 .ev-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .ev-date{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);font-weight:600}
-.ev-type{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,246,250,.65);border:1px solid rgba(244,246,250,.2);border-radius:100px;padding:4px 11px}
+.ev-type{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,235,.65);border:1px solid rgba(245,245,235,.2);border-radius:100px;padding:4px 11px}
 .ev-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.2em;color:#5FC08B}
 .ev-proximo{color:var(--acc);border-color:var(--acc-dim)}
 .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5FC08B;animation:pulseGreen 1.9s ease-out infinite}
 @keyframes pulseGreen{0%{box-shadow:0 0 0 0 rgba(95,192,139,.55)}70%{box-shadow:0 0 0 9px rgba(95,192,139,0)}100%{box-shadow:0 0 0 0 rgba(95,192,139,0)}}
 .ev-card h3{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.2}
-.ev-res{font-size:.9rem;color:rgba(244,246,250,.72);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:60ch}
+.ev-res{font-size:.9rem;color:rgba(245,245,235,.72);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:60ch}
 .ev-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:4px;flex-wrap:wrap}
-.ev-part{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,246,250,.5)}
+.ev-part{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,245,235,.5)}
 .ev-link{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);display:inline-flex;gap:9px;align-items:center}
 .ev-link .arr{transition:transform .35s var(--ease)}
 .ev-card:hover .ev-link .arr{transform:translateX(5px)}
 
 /* CTA */
 .cta-band{background:radial-gradient(900px 300px at 15% 0%,rgba(255,255,255,.24),transparent 60%),linear-gradient(120deg,var(--acc-deep),var(--acc) 48%,var(--acc-light));color:var(--navy);text-align:center;overflow:hidden}
-.cta-ghost{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:var(--f-disp);font-weight:700;font-size:clamp(5.5rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(6,26,51,.12);white-space:nowrap;pointer-events:none;user-select:none;animation:ghostSlide 46s linear infinite}
+.cta-ghost{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:var(--f-disp);font-weight:700;font-size:clamp(5.5rem,15vw,11rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(10,10,10,.12);white-space:nowrap;pointer-events:none;user-select:none;animation:ghostSlide 46s linear infinite}
 @keyframes ghostSlide{to{transform:translateY(-50%) translateX(-50%)}}
 .cta-band .kicker{color:var(--navy);justify-content:center}
 .cta-band .kicker::before{background:var(--navy)}
 .cta-band h2{font-family:var(--f-disp);font-weight:600;font-size:clamp(2.2rem,5.2vw,3.8rem);line-height:1.08;margin:20px auto 16px;max-width:16ch}
-.cta-band h2 em{font-style:italic}
-.cta-band p{max-width:52ch;margin:0 auto 32px;color:rgba(6,26,51,.78);font-size:1.03rem}
+.cta-band h2 em{font-style:normal}
+.cta-band p{max-width:52ch;margin:0 auto 32px;color:rgba(10,10,10,.78);font-size:1.03rem}
 
 /* Footer */
 footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--line-d)}
@@ -812,8 +913,8 @@ footer{background:var(--navy-deep);padding:34px 0;border-top:1px solid var(--lin
    alto tocable, bajo los 24px que pide WCAG 2.2. El margen negativo compensa
    el padding, asi que el pie se dibuja igual. */
 footer .wrap a{display:inline-block;padding:6px 0;margin:-6px 0}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,246,250,.45)}
-footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(244,246,250,.65);transition:color .3s}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,245,235,.45)}
+footer a{display:inline-block;padding:6px 4px;margin:-6px -4px;color:rgba(245,245,235,.65);transition:color .3s}
 footer a:hover{color:var(--acc)}
 
 /* ============================================================================
@@ -830,7 +931,7 @@ footer a:hover{color:var(--acc)}
 .rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:900;
   display:none;flex-direction:column;gap:1px}
 .rail a{display:flex;align-items:center;gap:9px;padding:8px 6px;
-  color:rgba(244,246,250,.4);transition:color .35s}
+  color:rgba(245,245,235,.4);transition:color .35s}
 .rail a::before{content:"";width:14px;height:1px;background:currentColor;flex:none;
   transition:width .4s var(--ease)}
 .rail a.on::before{width:26px}
@@ -840,7 +941,7 @@ footer a:hover{color:var(--acc)}
   transition:max-width .5s var(--ease),opacity .35s}
 .rail a:hover,.rail a.on{color:var(--acc)}
 .rail a:hover .rl-t,.rail a.on .rl-t{max-width:112px;opacity:1}
-.rail.claro a{color:rgba(14,20,32,.42)}
+.rail.claro a{color:rgba(10,10,10,.42)}
 .rail.claro a:hover,.rail.claro a.on{color:var(--acc-deep)}
 /* Se muestra desde 1240px y no desde 1460: a 1280x720 -la pantalla en la que
    se trabaja este sitio- la guia de contenido empieza en 78px, asi que el riel
@@ -927,6 +1028,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
       <li><a href="../eventos/index.html">Eventos</a></li>
       <li><a href="#nosotros">El área</a></li>
       <li><a href="#corte">El corte</a></li>
+      <li><a href="#tu-cartera">Tu cartera</a></li>
       <li><a href="#metricas">Métricas</a></li>
       <li><a href="#torneo">Torneo</a></li>
       <li><a href="#responsables">Responsables</a></li>
@@ -942,6 +1044,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <a href="../eventos/index.html">Eventos</a>
   <a href="#nosotros">El área</a>
   <a href="#corte">El corte</a>
+  <a href="#tu-cartera">Tu cartera</a>
   <a href="#metricas">Métricas</a>
   <a href="#torneo">Torneo</a>
   <a href="#responsables">Responsables</a>
@@ -954,10 +1057,11 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   <a href="#inicio"><span class="rl-n">01</span><span class="rl-t">Frontera</span></a>
   <a href="#nosotros"><span class="rl-n">02</span><span class="rl-t">El área</span></a>
   <a href="#corte"><span class="rl-n">03</span><span class="rl-t">El corte</span></a>
-  <a href="#metricas"><span class="rl-n">04</span><span class="rl-t">100 puntos</span></a>
-  <a href="#pilares"><span class="rl-n">05</span><span class="rl-t">Método</span></a>
-  <a href="#torneo"><span class="rl-n">06</span><span class="rl-t">Torneo</span></a>
-  <a href="#responsables"><span class="rl-n">07</span><span class="rl-t">Equipo</span></a>
+  <a href="#tu-cartera"><span class="rl-n">04</span><span class="rl-t">Tu cartera</span></a>
+  <a href="#metricas"><span class="rl-n">05</span><span class="rl-t">100 puntos</span></a>
+  <a href="#pilares"><span class="rl-n">06</span><span class="rl-t">Método</span></a>
+  <a href="#torneo"><span class="rl-n">07</span><span class="rl-t">Torneo</span></a>
+  <a href="#responsables"><span class="rl-n">08</span><span class="rl-t">Equipo</span></a>
 </nav>
 
 <!-- HERO — el plano riesgo/retorno es la pieza, no el fondo (ver el CSS) -->
@@ -981,6 +1085,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   </div>
   <div class="wrap">
     <div class="hero-say">
+      <div class="cierre" id="cierre" hidden></div>
       <div class="kicker reveal"><span class="scr" data-text="Portafolio · FIG">Portafolio · FIG</span></div>
       <h1 aria-label="Gestionar la cartera, no adivinar el mercado.">
         <span class="ln"><span>Gestionar la cartera,</span></span>
@@ -1008,6 +1113,12 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
         <span class="pl-when" id="planoCorte"></span>
       </figcaption>
       <div class="pl-svg" id="planoSvg"></div>
+      <!-- La temporada: aparece solo cuando llega el historial (torneo.json). -->
+      <div class="pl-ctrl" id="plCtrl" hidden>
+        <button type="button" id="plPlay">▶ Temporada</button>
+        <input type="range" id="plWk" min="0" max="0" value="0" aria-label="Semana del torneo que muestra el plano">
+        <output id="plWkL" for="plWk"></output>
+      </div>
       <p class="pl-foot" id="planoPie"></p>
     </figure>
   </div>
@@ -1072,6 +1183,27 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
   </div>
 </section>
 
+<!-- TU CARTERA — el visitante elige su equipo y la página se ajusta a él:
+     el disco se marca en el plano, sus métricas aparecen en §Los 100 puntos y
+     el enlace #<id del equipo> abre la página ya con él elegido. Arranca
+     `hidden` y aparece con el ranking, como §El corte. -->
+<section class="section--dark" id="tu-cartera" hidden>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker reveal"><span class="scr" data-text="Tu cartera">Tu cartera</span></div>
+      <h2 class="h-sec reveal d1">Busca a tu equipo.</h2>
+      <p class="lead reveal d2" style="margin-top:18px">Elige tu equipo y la página se ajusta a él: tu disco queda marcado en la frontera, tus puestos aparecen en «Los 100 puntos» y el enlace abre esta página ya con tu equipo elegido, para compartirlo.</p>
+    </div>
+    <div class="tc-pick reveal">
+      <label for="tcSel">Equipo</label>
+      <select id="tcSel"></select>
+      <button type="button" id="tcCopy">Copiar el enlace de este equipo</button>
+      <span class="tc-msg" id="tcMsg" role="status"></span>
+    </div>
+    <div class="tc-grid reveal d1"><div class="tc-a" id="tcA"></div><div class="tc-b" id="tcB"></div></div>
+  </div>
+</section>
+
 <!-- CÓMO SE EVALÚA — las 5 métricas.
      Las tarjetas se dibujan siempre (nombre y explicación viven en
      datos/portafolio.json); el peso, el medidor y el mejor equipo del corte
@@ -1089,6 +1221,7 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
          dibujan siempre, porque la explicacion de cada metrica es del area. -->
     <div class="alloc reveal" id="alloc" role="img" hidden></div>
     <div class="alloc-key" id="allocKey" hidden></div>
+    <div class="mt-tabs" id="mtTabs" role="tablist" aria-label="Las cinco métricas" hidden></div>
     <div class="mrows" id="mtRows"></div>
     <div class="mt-reglas reveal d2">
       <div class="mt-regla">
@@ -1101,6 +1234,15 @@ html:not(.no-js) body:not(.hero-in) .hero .reveal{opacity:0;transform:translateY
       </div>
     </div>
     <p class="mt-nota reveal d3">En VaR 95% y máximo drawdown el mejor valor es el más cercano a cero, no el más alto: ahí gana quien menos perdió.<span id="mtCorte"></span></p>
+    <!-- La tesis de la sección, demostrada con el corte vigente. -->
+    <div class="solo reveal" id="solo" hidden>
+      <div class="kicker">La prueba</div>
+      <h3>¿Y si solo contara una métrica?</h3>
+      <p>Elige una y mira cómo se reordenaría el ranking de este corte si fuera lo único que importa. Por eso el torneo mezcla cinco.</p>
+      <div class="solo-seg" id="soloSeg" role="group" aria-label="Ordenar el ranking solo por"></div>
+      <p class="solo-read" id="soloRead" role="status"></p>
+      <div class="solo-svg" id="soloSvg"></div>
+    </div>
   </div>
 </section>
 
@@ -1568,36 +1710,87 @@ function pintarCinta(){
    así que está dibujado en la primera pintada y no espera al archivo grande.
    El viewBox es fijo, así que el dibujo se estira solo con la ventana y no
    hay que repintarlo al cambiar el tamaño. */
-function planoPuntos(d){
-  var out=[];
+/* y = retorno acumulado del equipo MENOS el del ACWI en la misma semana: así
+   los discos sobre la línea azul son exactamente los que cuenta gananIndice().
+   Con `s` distinto del corte vigente se lee del historial (la temporada). */
+function planoPuntos(d,s){
+  var out=[],vig=(s===undefined||s===d.semana),a=acwiDe(d,vig?d.semana:s);
   d.equipos.forEach(function(t){
-    var m=t.metricas||{},x=m.mdd,y=num(m.exc)?m.exc:t.retRel;
+    var x,y,p,pos;
+    if(vig){
+      var m=t.metricas||{},r=retEq(t,d);
+      x=m.mdd;y=(r!==null&&a!==null)?r-a:(num(m.exc)?m.exc:t.retRel);p=t.puntos;pos=t.posicion;
+    }else{
+      var h=null;(t.historial||[]).forEach(function(q){if(q&&q.semana===s)h=q});
+      if(!h||a===null||!num(h.ret))return;
+      x=h.mdd;y=h.ret-a;p=h.puntos;pos=h.posicion;
+    }
     if(!num(x)||!num(y))return;
-    out.push({n:t.nombre,x:Math.abs(x),y:y,p:num(t.puntos)?t.puntos:0,pos:t.posicion});
+    out.push({id:t.id,n:t.nombre,x:Math.abs(x),y:y,p:num(p)?p:0,pos:pos});
   });
   return out.length>=5?out:null;
+}
+/* Semanas con ACWI y con historial: el eje de la temporada. */
+function semanasPlano(d){
+  if(!TD_HIST)return [];
+  var set={};d.equipos.forEach(function(t){(t.historial||[]).forEach(function(h){if(h&&num(h.ret)&&acwiDe(d,h.semana)!==null)set[h.semana]=1})});
+  return Object.keys(set).map(Number).sort(function(a,b){return a-b});
+}
+/* Escala FIJA para toda la temporada (percentiles 2-98, para que un extremo no
+   aplaste al resto): si cada semana tuviera su propia escala, los discos
+   saltarían sin que nadie se moviera. Los que se salen quedan en el borde. */
+var PL_ESC=null,PL_SEM=null,PL_TIMER=null,SEL=null;
+function escalaTemporada(){
+  var xs=[],ys=[];
+  semanasPlano(TD).forEach(function(s){(planoPuntos(TD,s)||[]).forEach(function(q){xs.push(q.x);ys.push(q.y)})});
+  if(xs.length<10)return null;
+  var xM=cuantil(xs,.98)*1.08,ym=cuantil(ys,.02),yM=cuantil(ys,.98),pad=(yM-ym)*.1;
+  ym-=pad;yM+=pad;if(ym>0)ym=0;if(yM<0)yM=0;
+  return {xM:xM,ym:ym,yM:yM};
 }
 function frontera(pts){
   var s=pts.slice().sort(function(a,b){return a.x-b.x||b.y-a.y}),out=[],tope=-Infinity;
   s.forEach(function(p){if(p.y>tope){tope=p.y;out.push(p)}});
   return out.length>=2?out:null;
 }
+/* "Le ganan al índice" se cuenta por RETORNO ACUMULADO contra el iShares MSCI
+   ACWI del mismo corte (decisión de Francisco, 2026-10-21: es la misma cuenta
+   que hace informe/). Antes se contaba por retorno en exceso de PORT (exc > 0),
+   que da otro número y no es lo que decía el texto. Si el corte todavía no
+   tiene el ACWI capturado, se vuelve a la cuenta vieja para no inventar. */
+function acwiDe(d,s){
+  var r=null;(d.acwi||[]).forEach(function(a){if(a&&a.semana===s&&num(a.ret))r=a.ret});return r;
+}
+function retEq(t,d){
+  if(num(t.ret))return t.ret;
+  var r=null;(t.historial||[]).forEach(function(h){if(h&&h.semana===d.semana&&num(h.ret))r=h.ret});return r;
+}
 function gananIndice(d){
-  var n=0,tot=0;
+  var a=acwiDe(d,d.semana),n=0,tot=0;
+  if(a!==null){
+    d.equipos.forEach(function(t){var r=retEq(t,d);if(r===null)return;tot++;if(r>a)n++});
+    if(tot)return {n:n,tot:tot,a:a};
+  }
+  n=0;tot=0;
   d.equipos.forEach(function(t){
     var v=(t.metricas&&num(t.metricas.exc))?t.metricas.exc:(num(t.retRel)?t.retRel:null);
     if(v===null)return;
     tot++;if(v>0)n++;
   });
-  return tot?{n:n,tot:tot}:null;
+  return tot?{n:n,tot:tot,a:null}:null;
 }
 function pintarPlano(){
   var fig=$("#plano"),host=$("#planoSvg");
   if(!fig||!host||!TD)return;
-  var pts=planoPuntos(TD);
-  if(!pts){fig.hidden=true;return;}
+  var sem=(PL_SEM!==null&&TD_HIST)?PL_SEM:TD.semana,vig=(sem===TD.semana);
+  var pts=planoPuntos(TD,sem);
+  if(!pts){if(vig)fig.hidden=true;return;}
 
-  var W=520,H=320,pl=64,pr=54,pt=32,pb=42,iw=W-pl-pr,ih=H-pt-pb;
+  /* En un teléfono el plano de 520×320 se encogía a ~330 px y sus rótulos
+     quedaban en ~7 px. Ahí se dibuja casi cuadrado y con letra más grande. */
+  var chico=(host.clientWidth||520)<480;
+  var W=chico?360:520,H=chico?340:320,pl=chico?60:64,pr=chico?40:54,pt=32,pb=42,iw=W-pl-pr,ih=H-pt-pb;
+  var fs=chico?11:9,fsL=chico?11.5:9.5;
   var xm=0,xM=0,ym=Infinity,yM=-Infinity,pM=0;
   pts.forEach(function(q){
     if(q.x>xM)xM=q.x;if(q.y<ym)ym=q.y;if(q.y>yM)yM=q.y;if(q.p>pM)pM=q.p;
@@ -1606,8 +1799,9 @@ function pintarPlano(){
   xM*=1.08;
   var padY=(yM-ym)*.1;ym-=padY;yM+=padY;
   if(ym>0)ym=0;if(yM<0)yM=0;              /* el cero (el índice) siempre en el marco */
-  function sx(v){return pl+v/xM*iw}
-  function sy(v){return pt+(1-(v-ym)/(yM-ym))*ih}
+  if(TD_HIST){if(!PL_ESC)PL_ESC=escalaTemporada();if(PL_ESC){xM=PL_ESC.xM;ym=PL_ESC.ym;yM=PL_ESC.yM;pM=100}}
+  function sx(v){return pl+Math.min(v,xM)/xM*iw}
+  function sy(v){return pt+(1-(Math.max(ym,Math.min(yM,v))-ym)/(yM-ym))*ih}
 
   var G="";
   /* Rejilla: hairline sólida, nunca punteada (regla del sitio). */
@@ -1615,19 +1809,21 @@ function pintarPlano(){
     if(Math.abs(v)<1e-9)return;
     G+='<line x1="'+pl+'" y1="'+sy(v).toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+sy(v).toFixed(1)
       +'" stroke="rgba(255,122,0,.1)" stroke-width="1"/>'
-      +'<text x="'+(pl-8)+'" y="'+(sy(v)+3.2).toFixed(1)+'" text-anchor="end" font-size="9" fill="rgba(244,246,250,.45)">'+fmtPct(v,true)+'</text>';
+      +'<text x="'+(pl-8)+'" y="'+(sy(v)+3.2).toFixed(1)+'" text-anchor="end" font-size="'+fs+'" fill="rgba(245,245,235,.5)">'+fmtPct(v,true)+'</text>';
   });
   marcas(0,xM,3).forEach(function(v){
     if(v<=0)return;
     G+='<line x1="'+sx(v).toFixed(1)+'" y1="'+pt+'" x2="'+sx(v).toFixed(1)+'" y2="'+(pt+ih)
       +'" stroke="rgba(255,122,0,.07)" stroke-width="1"/>'
-      +'<text x="'+sx(v).toFixed(1)+'" y="'+(pt+ih+14)+'" text-anchor="middle" font-size="9" fill="rgba(244,246,250,.45)">'+fmtPct(v)+'</text>';
+      +'<text x="'+sx(v).toFixed(1)+'" y="'+(pt+ih+14)+'" text-anchor="middle" font-size="'+fs+'" fill="rgba(245,245,235,.5)">'+fmtPct(v)+'</text>';
   });
   /* El índice. Es la única línea azul del plano y no necesita leyenda: lleva
      su nombre escrito al final, como en el gráfico de §El corte. */
   var y0=sy(0);
   G+='<line x1="'+pl+'" y1="'+y0.toFixed(1)+'" x2="'+(pl+iw)+'" y2="'+y0.toFixed(1)+'" stroke="#7BA7DE" stroke-width="1.6"/>'
-    +'<text x="'+(pl+iw+7)+'" y="'+(y0+3.2).toFixed(1)+'" font-size="9.5" fill="#7BA7DE">ACWI</text>';
+    +'<text x="'+(pl+iw+7)+'" y="'+(y0+3.2).toFixed(1)+'" font-size="'+fsL+'" fill="#7BA7DE">ACWI</text>';
+  /* La semana que se está mirando, al fondo y muy tenue (solo con historial). */
+  if(TD_HIST)G='<text x="'+(pl+iw-4)+'" y="'+(pt+ih-8)+'" text-anchor="end" font-size="'+(chico?54:62)+'" font-weight="800" fill="rgba(245,245,235,.07)" style="font-family:var(--f-disp);font-stretch:62%;letter-spacing:0">S'+sem+'</text>'+G;
   /* La frontera, detrás de los discos. */
   var fr=frontera(pts);
   if(fr){
@@ -1637,7 +1833,7 @@ function pintarPlano(){
   /* Los discos. Lleno = le gana al índice; calado = no. */
   pts.slice().sort(function(a,b){return b.p-a.p}).forEach(function(q){
     var r=(3+(pM>0?q.p/pM:0)*6).toFixed(1),X=sx(q.x).toFixed(1),Y=sy(q.y).toFixed(1);
-    var det=esc(q.n+" · exceso "+fmtPct(q.y,true)+" · caída máxima "+fmtPct(q.x)+" · "+fmtNum(q.p)+" pts");
+    var det=esc(q.n+" · "+fmtPct(q.y,true)+" sobre el índice · caída máxima "+fmtPct(q.x)+" · "+fmtNum(q.p)+" pts");
     G+=q.y>0
       ? '<circle class="pt" cx="'+X+'" cy="'+Y+'" r="'+r+'" fill="#FFA64D" fill-opacity=".82"><title>'+det+'</title></circle>'
       : '<circle class="pt" cx="'+X+'" cy="'+Y+'" r="'+r+'" fill="#FF7A00" fill-opacity=".1" stroke="rgba(255,122,0,.55)" stroke-width="1"><title>'+det+'</title></circle>';
@@ -1645,34 +1841,42 @@ function pintarPlano(){
   /* El líder, con anillo y nombre escrito: es el único rótulo directo del
      plano. El rótulo se voltea al otro lado si el disco está cerca del borde
      derecho, para no salirse del marco. */
-  var top=null;
-  pts.forEach(function(q){if(num(q.pos)&&(!top||q.pos<top.pos))top=q});
+  var top=null,mio=null;
+  pts.forEach(function(q){if(num(q.pos)&&(!top||q.pos<top.pos))top=q;if(SEL&&q.id===SEL)mio=q});
+  if(mio&&mio!==top){
+    var rM=(3+(pM>0?mio.p/pM:0)*6),XM=sx(mio.x),YM=sy(mio.y),xTM=Math.max(pl+40,Math.min(XM,pl+iw-40));
+    G+='<circle cx="'+XM.toFixed(1)+'" cy="'+YM.toFixed(1)+'" r="'+(rM+5).toFixed(1)+'" fill="#F5F5EB" fill-opacity=".9" stroke="#0A0A0A" stroke-width="1.5"/>'
+      +'<circle cx="'+XM.toFixed(1)+'" cy="'+YM.toFixed(1)+'" r="'+rM.toFixed(1)+'" fill="#FF7A00"/>'
+      +'<text x="'+xTM.toFixed(1)+'" y="'+(YM+rM+16).toFixed(1)+'" text-anchor="middle" font-size="'+fsL+'" fill="#F5F5EB">'+esc(mio.n.toUpperCase())+'</text>';
+  }
   if(top){
     var rT=(3+(pM>0?top.p/pM:0)*6),X=sx(top.x),Y=sy(top.y);
     var xT=Math.max(pl+34,Math.min(X,pl+iw-34));
     G+='<circle cx="'+X.toFixed(1)+'" cy="'+Y.toFixed(1)+'" r="'+(rT+5).toFixed(1)
       +'" fill="none" stroke="#FF7A00" stroke-width="1" stroke-opacity=".8"/>'
-      +'<text x="'+xT.toFixed(1)+'" y="'+(Y-rT-10).toFixed(1)+'" text-anchor="middle"'
-      +' font-size="9.5" fill="#FF7A00">'+esc(top.n.toUpperCase())+'</text>';
+      /* Pegado al techo, el rótulo pisaba el título del eje: ahí va abajo. */
+      +'<text x="'+xT.toFixed(1)+'" y="'+((Y-rT-10<pt+6)?(Y+rT+17):(Y-rT-10)).toFixed(1)+'" text-anchor="middle"'
+      +' font-size="'+fsL+'" fill="#FF7A00">'+esc(top.n.toUpperCase())+'</text>';
   }
   /* Rótulos de los ejes. */
-  G+='<text x="'+(pl+iw)+'" y="'+(H-8)+'" text-anchor="end" font-size="8.5" fill="rgba(244,246,250,.4)">RIESGO · CAÍDA MÁXIMA →</text>'
-    +'<text x="'+(pl-16)+'" y="'+(pt-11)+'" font-size="8.5" fill="rgba(244,246,250,.4)">↑ RETORNO SOBRE EL ÍNDICE</text>';
+  G+='<text x="'+(pl+iw)+'" y="'+(H-8)+'" text-anchor="end" font-size="'+(chico?10:8.5)+'" fill="rgba(245,245,235,.45)">RIESGO · CAÍDA MÁXIMA →</text>'
+    +'<text x="'+(pl-16)+'" y="'+(pt-11)+'" font-size="'+(chico?10:8.5)+'" fill="rgba(245,245,235,.45)">↑ RETORNO SOBRE EL ÍNDICE</text>';
 
-  var g=gananIndice(TD)||{n:0,tot:pts.length};
+  var g=vig?(gananIndice(TD)||{n:0,tot:pts.length}):{n:pts.filter(function(q){return q.y>0}).length,tot:pts.length};
   var etq="Plano riesgo / retorno de las "+pts.length+" carteras del corte: cada disco es una cartera, "
     +"situada por su caída máxima y por su retorno sobre el iShares MSCI ACWI. "
     +g.n+" de "+g.tot+" están sobre la línea del índice. Las cifras van escritas bajo la figura.";
   host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(etq)+'">'+G+'</svg>';
 
   var c=$("#planoCorte");
-  if(c)c.textContent=(num(TD.semana)?"Semana "+TD.semana:"")+(TD.corte?" · "+TD.corte:"");
+  if(c)c.textContent=vig?((num(TD.semana)?"Semana "+TD.semana:"")+(TD.corte?" · "+TD.corte:"")):"Semana "+sem+" · temporada";
   var pie=$("#planoPie");
   if(pie){
-    pie.innerHTML='Cada disco es una cartera del torneo, puesta según lo que arriesgó y lo que le sacó al índice. '
-      +'<b>'+g.n+' de '+g.tot+'</b> están sobre la línea del ACWI. '
+    pie.innerHTML=(vig?'':'Semana '+sem+'. ')+'Cada disco es una cartera del torneo, puesta según su caída máxima y su retorno acumulado sobre el iShares MSCI ACWI. '
+      +'<b>'+g.n+' de '+g.tot+'</b> están sobre la línea del índice. '
       +'La línea naranja es la frontera: bajo ella siempre hay otra cartera que rindió más arriesgando menos.';
   }
+  pintarCtrlPlano();
   fig.hidden=false;
   requestAnimationFrame(function(){fig.classList.add("on")});
   sincRiel();
@@ -1692,16 +1896,21 @@ function pintarCorte(){
     tiles.push({k:"Va primero",v:l.nombre,span:6,lider:true,
                 sub:num(l.puntos)?fmtNum(l.puntos)+" puntos de 100 en este corte.":""});
   }
-  if(num(TD.semana)){
-    tiles.push({k:"Semana del torneo",v:String(TD.semana),span:3,
-                sub:TD.corte?"Corte del "+TD.corte:"Se recalcula cada viernes."});
+  /* La semana y el número de carteras ya están en el pie del hero: repetirlos
+     acá era decir lo mismo dos veces seguidas. En su lugar va lo que el hero
+     no dice, el movimiento de la semana (el campo `delta` del ranking). */
+  var conD=TD.equipos.filter(function(t){return num(t.delta)});
+  if(conD.length){
+    var sube=conD.reduce(function(a,b){return b.delta>a.delta?b:a}),baja=conD.reduce(function(a,b){return b.delta<a.delta?b:a});
+    if(sube.delta>0)tiles.push({k:"Más subió esta semana",v:sube.nombre,span:3,txt:true,sub:"▲ "+sube.delta+(sube.delta===1?" puesto":" puestos")+" · hoy "+sube.posicion+"°."});
+    if(baja.delta<0)tiles.push({k:"Más bajó esta semana",v:baja.nombre,span:3,txt:true,sub:"▼ "+(-baja.delta)+(baja.delta===-1?" puesto":" puestos")+" · hoy "+baja.posicion+"°."});
   }
-  tiles.push({k:"Carteras en competencia",v:String(TD.equipos.length),span:3,
-              sub:"Cada equipo gestiona su propia cartera simulada y la reporta desde Bloomberg."});
   var g=gananIndice(TD);
   if(g){
     tiles.push({k:"Le ganan al índice",v:g.n,u:"de "+g.tot,span:6,
-                sub:"Carteras con retorno por sobre el iShares MSCI ACWI en este corte. Es la línea azul del plano de arriba."});
+                sub:g.a!==null
+                  ? "Carteras con retorno acumulado por sobre el del iShares MSCI ACWI ("+fmtPct(g.a,true)+") en este corte. Son los discos sobre la línea azul del plano de arriba."
+                  : "Carteras con retorno en exceso positivo en este corte. Es la línea azul del plano de arriba."});
   }
   if(pts.length>1){
     var mx=Math.max.apply(null,pts),mn=Math.min.apply(null,pts);
@@ -1709,7 +1918,7 @@ function pintarCorte(){
                 sub:"El puntaje del corte va de "+fmtNum(mx)+" a "+fmtNum(mn)+"."});
   }
   $("#board").innerHTML=tiles.map(function(t){
-    return '<div class="bd bd--s'+t.span+(t.lider?" bd--lider":"")+'">'
+    return '<div class="bd bd--s'+t.span+(t.lider?" bd--lider":"")+(t.txt?" bd--txt":"")+'">'
       +'<span class="bd-k">'+esc(t.k)+'</span>'
       +'<span class="bd-v">'+esc(t.v)+(t.u?'<small>'+esc(t.u)+'</small>':"")+'</span>'
       +(t.sub?'<span class="bd-sub">'+esc(t.sub)+'</span>':"")+'</div>';
@@ -1765,8 +1974,8 @@ function pintarGrafico(){
   var ys=marcas(lo,hi,4);
   ys.forEach(function(v){
     var y=sy(v).toFixed(1);
-    G+='<line x1="'+pl+'" y1="'+y+'" x2="'+(pl+iw)+'" y2="'+y+'" stroke="'+(Math.abs(v)<1e-9?"rgba(244,246,250,.24)":"rgba(255,122,0,.11)")+'" stroke-width="1"/>';
-    G+='<text x="'+(pl-8)+'" y="'+(sy(v)+3.5).toFixed(1)+'" text-anchor="end" font-size="'+(chico?9:10)+'" fill="rgba(244,246,250,.5)">'+fmtPct(v,true)+'</text>';
+    G+='<line x1="'+pl+'" y1="'+y+'" x2="'+(pl+iw)+'" y2="'+y+'" stroke="'+(Math.abs(v)<1e-9?"rgba(245,245,235,.24)":"rgba(255,122,0,.11)")+'" stroke-width="1"/>';
+    G+='<text x="'+(pl-8)+'" y="'+(sy(v)+3.5).toFixed(1)+'" text-anchor="end" font-size="'+(chico?9:10)+'" fill="rgba(245,245,235,.5)">'+fmtPct(v,true)+'</text>';
   });
   /* Eje de semanas: la primera y la última SIEMPRE, más las intermedias que
      quepan. Una intermedia se descarta si queda a menos de 30 px de la última:
@@ -1775,7 +1984,7 @@ function pintarGrafico(){
   pts.forEach(function(p,k){
     var borde=(k===0||k===pts.length-1);
     if(!borde&&(k%salto||Math.abs(sx(p.semana)-xUlt)<30))return;
-    G+='<text x="'+sx(p.semana).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle" font-size="'+(chico?9:10)+'" fill="rgba(244,246,250,.5)">S'+p.semana+'</text>';
+    G+='<text x="'+sx(p.semana).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle" font-size="'+(chico?9:10)+'" fill="rgba(245,245,235,.5)">S'+p.semana+'</text>';
   });
   /* Banda intercuartil: el 50% central del campo. Es contexto, va detrás. */
   var arriba=pts.map(function(p){return sx(p.semana).toFixed(1)+" "+sy(p.q3).toFixed(1)});
@@ -1797,7 +2006,7 @@ function pintarGrafico(){
     +'" fill="none" stroke="#FF7A00" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
   /* Puntas: anillo del color del fondo para que no se peguen si coinciden. */
   function punta(x,y,c){
-    return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="'+c+'" stroke="#0A2748" stroke-width="2"/>';
+    return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="4" fill="'+c+'" stroke="#161514" stroke-width="2"/>';
   }
   var fE=pts[pts.length-1],bE=bm.length?bm[bm.length-1]:null;
   if(bE)G+=punta(sx(bE.semana),sy(bE.bmk),"#7BA7DE");
@@ -1828,8 +2037,8 @@ function pintarGrafico(){
      horizontal al gráfico y le deja el vertical al scroll de la página: sin
      eso, en un teléfono el navegador se queda todos los toques como scroll. */
   G+='<line id="chGuide" x1="0" y1="'+pt+'" x2="0" y2="'+(pt+ih)+'" stroke="rgba(255,122,0,.45)" stroke-width="1" opacity="0"/>';
-  G+='<circle id="chDotF" r="4.5" fill="#FF7A00" stroke="#0A2748" stroke-width="2" opacity="0"/>';
-  G+='<circle id="chDotB" r="4.5" fill="#7BA7DE" stroke="#0A2748" stroke-width="2" opacity="0"/>';
+  G+='<circle id="chDotF" r="4.5" fill="#FF7A00" stroke="#161514" stroke-width="2" opacity="0"/>';
+  G+='<circle id="chDotB" r="4.5" fill="#7BA7DE" stroke="#161514" stroke-width="2" opacity="0"/>';
   G+='<rect id="chHit" x="'+pl+'" y="'+pt+'" width="'+iw+'" height="'+ih+'" fill="transparent"/>';
 
   var etq="Retorno acumulado del torneo: mediana de "+TD.equipos.length+" carteras contra el iShares MSCI ACWI, semana a semana. Las cifras están también en la tabla bajo el gráfico.";
@@ -1977,7 +2186,23 @@ function renderMetricas(){
     }
   }
 
-  /* Las franjas */
+  /* Las franjas: una por métrica, mostradas de a una con las pestañas de
+     arriba. Cada franja suma el top 5 del corte y, si el visitante eligió
+     equipo en §Tu cartera, su puesto en esa métrica. */
+  function top5(k){
+    if(!TD||!utiles(TD))return "";
+    var ord=TD.equipos.filter(function(t){return t.metricas&&num(t.metricas[k])})
+      .sort(function(a,b){return b.metricas[k]-a.metricas[k]});
+    if(!ord.length)return "";
+    var li=ord.slice(0,5).map(function(t,i){
+      return '<li'+(SEL&&t.id===SEL?' class="me"':'')+'><span>'+(i+1)+'. '+esc(t.nombre)+'</span><b>'+esc(fmtMet(k,t.metricas[k]))+'</b></li>';
+    }).join("");
+    if(SEL){
+      var j=-1;ord.forEach(function(t,i){if(t.id===SEL)j=i});
+      if(j>4)li+='<li class="gap" aria-hidden="true">·  ·  ·</li><li class="me"><span>'+(j+1)+'. '+esc(ord[j].nombre)+'</span><b>'+esc(fmtMet(k,ord[j].metricas[k]))+'</b></li>';
+    }
+    return '<ol class="mt-top" aria-label="Los cinco mejores del corte en esta métrica">'+li+'</ol>';
+  }
   rows.innerHTML=lista.map(function(m){
     var peso=(P&&num(P[m.clave]))?P[m.clave]:null;
     var mej=(peso!==null)?mejorEn(TD,m.clave):null;
@@ -1988,14 +2213,216 @@ function renderMetricas(){
       +(m.sub?'<span class="mrow-sub">'+esc(m.sub)+'</span>':"")
       +'<p>'+esc(m.texto)+'</p>';
     if(mej&&val)h+='<div class="mrow-best"><span>Mejor del corte</span><b>'+esc(mej.nombre)+'</b><span class="val">'+esc(val)+'</span></div>';
+    h+=top5(m.clave);
     return h+'</div></article>';
   }).join("");
+  pestanas(lista,P);
 
   var mc=$("#mtCorte");
   if(mc)mc.textContent=(TD&&num(TD.semana)&&TD.corte)
     ? "  ·  Mejor del corte: semana "+TD.semana+", cierre del "+TD.corte+"."
     : "";
   observeReveals(rows);
+}
+
+/* Pestañas de §Los 100 puntos. Patrón ARIA de tabs: flechas para moverse,
+   una sola franja visible. Sin JS se ven las cinco franjas, como antes. */
+var MT_ACT=null;
+function pestanas(lista,P){
+  var tabs=$("#mtTabs"),rows=$("#mtRows");if(!tabs||!rows)return;
+  var arts=$$(".mrow",rows);
+  if(arts.length<2){tabs.hidden=true;return;}
+  if(!MT_ACT||!lista.some(function(m){return m.clave===MT_ACT}))MT_ACT=lista[0].clave;
+  tabs.innerHTML=lista.map(function(m){
+    var on=m.clave===MT_ACT,p=(P&&num(P[m.clave]))?'<b>'+fmtNum(P[m.clave],0)+' pts</b>':'';
+    return '<button type="button" class="mt-tab" role="tab" id="mtTab-'+m.clave+'" aria-controls="mtRow-'+m.clave+'" aria-selected="'+on+'" tabindex="'+(on?0:-1)+'" data-k="'+m.clave+'">'+p+esc(m.nombre)+'</button>';
+  }).join("");
+  arts.forEach(function(a,i){
+    var k=lista[i].clave;
+    a.id="mtRow-"+k;a.setAttribute("role","tabpanel");a.setAttribute("aria-labelledby","mtTab-"+k);
+    a.classList.add("in");a.hidden=(k!==MT_ACT);
+  });
+  rows.classList.add("as-tabs");tabs.hidden=false;
+  if(!tabs._ok){
+    tabs._ok=true;
+    tabs.addEventListener("click",function(e){var b=e.target.closest(".mt-tab");if(b){MT_ACT=b.getAttribute("data-k");renderMetricas();var nb=$("#mtTab-"+MT_ACT);if(nb)nb.focus()}});
+    tabs.addEventListener("keydown",function(e){
+      if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+      var bs=$$(".mt-tab",tabs),i=bs.findIndex(function(b){return b.getAttribute("data-k")===MT_ACT});
+      i=(i+(e.key==="ArrowRight"?1:-1)+bs.length)%bs.length;
+      MT_ACT=bs[i].getAttribute("data-k");renderMetricas();var nb=$("#mtTab-"+MT_ACT);if(nb)nb.focus();e.preventDefault();
+    });
+  }
+}
+
+/* ---------------- La temporada en el plano ----------------
+   Con el historial cargado, el plano deja de ser una foto: un control recorre
+   las semanas publicadas y "▶ Temporada" las reproduce. La escala queda fija
+   (escalaTemporada) para que el movimiento de un disco sea movimiento real. */
+function pintarCtrlPlano(){
+  var box=$("#plCtrl"),rg=$("#plWk"),out=$("#plWkL");if(!box||!rg)return;
+  var ws=semanasPlano(TD);
+  if(ws.length<3){box.hidden=true;return;}
+  var s=(PL_SEM!==null)?PL_SEM:TD.semana,i=ws.indexOf(s);if(i<0)i=ws.length-1;
+  rg.max=ws.length-1;rg.value=i;out.textContent="Semana "+ws[i];
+  box.hidden=false;
+  if(!box._ok){
+    box._ok=true;
+    rg.addEventListener("input",function(){var w=semanasPlano(TD);PL_SEM=w[+rg.value];pintarPlano()});
+    $("#plPlay").addEventListener("click",function(){
+      var b=this;
+      if(PL_TIMER){clearInterval(PL_TIMER);PL_TIMER=null;b.textContent="▶ Temporada";return}
+      var w=semanasPlano(TD),k=w.indexOf(PL_SEM!==null?PL_SEM:TD.semana);
+      if(k<0||k>=w.length-1)k=0;
+      PL_SEM=w[k];pintarPlano();b.textContent="❚❚ Pausa";
+      PL_TIMER=setInterval(function(){
+        k++;if(k>=w.length){clearInterval(PL_TIMER);PL_TIMER=null;b.textContent="▶ Temporada";return}
+        PL_SEM=w[k];pintarPlano();
+      },RM?1400:650);
+    });
+  }
+}
+
+/* ---------------- Cuenta regresiva al cierre ----------------
+   Fechas de las bases de evaluación (§4.2 y §9): el ranking final oficial es
+   el del 2 de noviembre de 2026 y la final ante el jurado, el 9. Pasada la
+   final, la franja desaparece sola. */
+function pintarCierre(){
+  var el=$("#cierre");if(!el)return;
+  var h=new Date(),hoy=new Date(h.getFullYear(),h.getMonth(),h.getDate());
+  var cierre=new Date(2026,10,2),fin=new Date(2026,10,9);
+  if(hoy>fin){el.hidden=true;return;}
+  var d=Math.round((cierre-hoy)/864e5),t;
+  if(d>1)t="Quedan <b>"+d+" días</b> para el cierre del torneo · final ante jurado el 9 de noviembre";
+  else if(d===1)t="Queda <b>1 día</b> para el cierre del torneo · final ante jurado el 9 de noviembre";
+  else if(d===0)t="<b>Hoy cierra</b> el torneo · final ante jurado el 9 de noviembre";
+  else t="Torneo cerrado · <b>final ante jurado el 9 de noviembre</b>";
+  el.innerHTML='<i aria-hidden="true"></i><span>'+t+'</span>';
+  el.hidden=false;
+}
+pintarCierre();
+
+/* ---------------- §Tu cartera ----------------
+   El equipo elegido vive en SEL (su id). Se recuerda en este navegador y va
+   en el enlace (#id) para compartirlo. Sin elección se muestra el líder como
+   ejemplo, sin guardarlo. */
+var TC_SCROLL=false;
+function eqPorId(id){var r=null;if(TD)TD.equipos.forEach(function(t){if(t.id===id)r=t});return r}
+function pintarTuCartera(){
+  var sec=$("#tu-cartera"),sel=$("#tcSel");if(!sec||!sel||!TD)return;
+  var ord=TD.equipos.slice().sort(function(a,b){return (a.posicion||999)-(b.posicion||999)});
+  if(sel.options.length!==ord.length+1){
+    sel.innerHTML='<option value="">Elige tu equipo…</option>'+ord.map(function(t){return '<option value="'+esc(t.id)+'">'+(num(t.posicion)?t.posicion+". ":"")+esc(t.nombre)+'</option>'}).join("");
+  }
+  if(SEL===null){
+    var hh=decodeURIComponent((location.hash||"").slice(1));
+    if(eqPorId(hh)){SEL=hh;TC_SCROLL=true}
+    else{try{var g=localStorage.getItem("prt-equipo");if(eqPorId(g))SEL=g}catch(e){}}
+  }
+  sel.value=SEL||"";
+  var t=eqPorId(SEL)||lider(TD);if(!t)return;
+  var P=pesos(TD),ejemplo=!SEL;
+  var d=t.delta,dl=num(d)?(d>0?'<span class="tc-d up">▲ '+d+(d===1?' puesto':' puestos')+' esta semana</span>':d<0?'<span class="tc-d dn">▼ '+(-d)+(d===-1?' puesto':' puestos')+' esta semana</span>':'<span class="tc-d">Sin cambio esta semana</span>'):"";
+  var r=retEq(t,TD),a=acwiDe(TD,TD.semana);
+  var barras=MET_ORDEN.map(function(k){
+    var w=P&&num(P[k])?P[k]:null,v=t.puntosDetalle&&t.puntosDetalle[k];
+    if(w===null||!num(v))return "";
+    var ord2=TD.equipos.filter(function(x){return x.metricas&&num(x.metricas[k])}).sort(function(x,y){return y.metricas[k]-x.metricas[k]});
+    var pu=0;ord2.forEach(function(x,i){if(x.id===t.id)pu=i+1});
+    return '<div class="tc-bar"><span>'+esc(MET_ETIQ[k])+(pu?'<small>'+pu+'° del corte</small>':'')+'</span><span class="tr"><i style="width:'+Math.max(0,Math.min(100,v/w*100)).toFixed(1)+'%"></i></span><b>'+fmtNum(v,1)+' / '+fmtNum(w,0)+'</b></div>';
+  }).join("");
+  $("#tcA").innerHTML='<span class="tc-k">'+(ejemplo?"Ejemplo: el líder del corte":"Tu cartera")+' · semana '+esc(TD.semana)+'</span>'
+    +'<div class="tc-name">'+esc(t.nombre)+'</div>'
+    +'<div class="tc-big"><b>'+esc(t.posicion)+'°</b><span>de '+TD.equipos.length+(num(t.puntos)?' · '+fmtNum(t.puntos)+' pts':'')+'</span></div>'+dl
+    +'<div class="tc-bars">'+barras+'</div>';
+  /* El camino: posición semana a semana (necesita el historial). */
+  var B=$("#tcB"),hist=(t.historial||[]).filter(function(h){return h&&num(h.semana)&&num(h.posicion)}).sort(function(x,y){return x.semana-y.semana});
+  var txt=(r!==null&&a!==null)?'<p>Retorno acumulado <b>'+fmtPct(r,true)+'</b> contra <b>'+fmtPct(a,true)+'</b> del ACWI en este corte.</p>':'';
+  if(hist.length>1){
+    /* En teléfono el viewBox se achica para que la letra no quede en ~6 px. */
+    var ch2=(B.clientWidth||520)<480,W=ch2?340:520,H=ch2?190:210,pl=ch2?36:34,pr=ch2?34:40,pt=14,pb=26,fz=ch2?10.5:9,mx=Math.max.apply(null,hist.map(function(h){return h.posicion}).concat([TD.equipos.length]));
+    var s0=hist[0].semana,s1=hist[hist.length-1].semana;
+    var X=function(s){return pl+(s-s0)/Math.max(1,s1-s0)*(W-pl-pr)},Y=function(p){return pt+(p-1)/Math.max(1,mx-1)*(H-pt-pb)};
+    var G='<rect x="'+pl+'" y="'+(Y(1)-4).toFixed(1)+'" width="'+(W-pl-pr)+'" height="'+(Y(5)-Y(1)+8).toFixed(1)+'" fill="rgba(255,122,0,.10)"/>'
+      +'<text x="'+(pl+6)+'" y="'+(Y(3)+3).toFixed(1)+'" font-size="'+fz+'" fill="rgba(255,166,77,.85)" style="font-family:var(--f-mono);letter-spacing:.1em">ZONA DE FINAL · 1° A 5°</text>';
+    [1,10,20,30,40,50].forEach(function(p){if(p<=mx)G+='<text x="'+(pl-6)+'" y="'+(Y(p)+3).toFixed(1)+'" text-anchor="end" font-size="'+fz+'" fill="rgba(245,245,235,.45)" style="font-family:var(--f-mono)">'+p+'°</text>'});
+    G+='<path d="M'+hist.map(function(h){return X(h.semana).toFixed(1)+" "+Y(h.posicion).toFixed(1)}).join("L")+'" fill="none" stroke="#FF7A00" stroke-width="2.2" stroke-linejoin="round"/>';
+    var u=hist[hist.length-1];
+    G+='<circle cx="'+X(u.semana).toFixed(1)+'" cy="'+Y(u.posicion).toFixed(1)+'" r="4.5" fill="#F5F5EB" stroke="#FF7A00" stroke-width="2"/>'
+      +'<text x="'+(X(u.semana)+8).toFixed(1)+'" y="'+(Y(u.posicion)+3.5).toFixed(1)+'" font-size="'+(fz+1)+'" fill="#F5F5EB" style="font-family:var(--f-mono)">'+u.posicion+'°</text>'
+      +'<text x="'+pl+'" y="'+(H-6)+'" font-size="'+fz+'" fill="rgba(245,245,235,.45)" style="font-family:var(--f-mono)">S'+s0+'</text>'
+      +'<text x="'+(W-pr)+'" y="'+(H-6)+'" text-anchor="end" font-size="'+fz+'" fill="rgba(245,245,235,.45)" style="font-family:var(--f-mono)">S'+s1+'</text>';
+    var mej=hist.reduce(function(x,y){return y.posicion<x.posicion?y:x});
+    B.innerHTML='<span class="tc-k">El camino en el ranking</span>'
+      +'<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Posición de '+esc(t.nombre)+' semana a semana, de la '+s0+' a la '+s1+'">'+G+'</svg>'
+      +'<p>Mejor puesto de la temporada: <b>'+mej.posicion+'°</b> (semana '+mej.semana+').</p>'+txt;
+  }else{
+    B.innerHTML='<span class="tc-k">El camino en el ranking</span><p>El recorrido semana a semana aparece en cuanto termina de cargar el historial del torneo.</p>'+txt;
+  }
+  sec.hidden=false;
+  observeReveals(sec);
+  sincRiel();
+  if(!sel._ok){
+    sel._ok=true;
+    sel.addEventListener("change",function(){
+      SEL=sel.value||null;
+      try{if(SEL)localStorage.setItem("prt-equipo",SEL);else localStorage.removeItem("prt-equipo")}catch(e){}
+      try{history.replaceState(null,"",SEL?"#"+SEL:location.pathname+location.search)}catch(e){}
+      $("#tcMsg").textContent="";
+      pintarTuCartera();pintarPlano();renderMetricas();pintarSolo();
+    });
+    $("#tcCopy").addEventListener("click",function(){
+      var id=SEL||(lider(TD)||{}).id;if(!id)return;
+      var url=location.origin+location.pathname+"#"+id,msg=$("#tcMsg");
+      function mostrar(){msg.textContent=url}
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){msg.textContent="Enlace copiado"},mostrar);
+      }else mostrar();
+    });
+  }
+  if(TC_SCROLL){TC_SCROLL=false;setTimeout(function(){sec.scrollIntoView({behavior:RM?"auto":"smooth"})},400)}
+}
+
+/* ---------------- ¿Y si solo contara una métrica? ----------------
+   Un gráfico de pendientes: a la izquierda el ranking oficial del corte, a la
+   derecha el que saldría ordenando solo por la métrica elegida. Es la tesis
+   de §Los 100 puntos ("una cartera no se juzga por su rentabilidad")
+   mostrada con los equipos de verdad. */
+var SOLO_K="ret";
+var SOLO_OPC=[["ret","Solo rentabilidad"],["ir","Solo information ratio"],["exc","Solo retorno en exceso"],["sharpe","Solo Sharpe"],["var95","Solo VaR 95%"],["mdd","Solo drawdown"]];
+function pintarSolo(){
+  var box=$("#solo"),seg=$("#soloSeg"),host=$("#soloSvg");if(!box||!seg||!host||!TD)return;
+  function val(t){if(SOLO_K==="ret")return retEq(t,TD);return t.metricas&&num(t.metricas[SOLO_K])?t.metricas[SOLO_K]:null}
+  var off=TD.equipos.filter(function(t){return num(t.posicion)&&val(t)!==null}).sort(function(a,b){return a.posicion-b.posicion});
+  if(off.length<6){box.hidden=true;return;}
+  var alt=off.slice().sort(function(a,b){return val(b)-val(a)}),rk={};
+  alt.forEach(function(t,i){rk[t.id]=i+1});
+  var ofi={};off.forEach(function(t,i){ofi[t.id]=i+1});
+  seg.innerHTML=SOLO_OPC.map(function(o){return '<button type="button" data-k="'+o[0]+'" aria-pressed="'+(o[0]===SOLO_K)+'">'+esc(o[1])+'</button>'}).join("");
+  if(!seg._ok){seg._ok=true;seg.addEventListener("click",function(e){var b=e.target.closest("button");if(b){SOLO_K=b.getAttribute("data-k");pintarSolo()}})}
+  var N=off.length,row=15.5,top=30,W=640,xl=228,xr=412,H=top+N*row+8,G="",mov=0,big=null;
+  var etq=SOLO_OPC.filter(function(o){return o[0]===SOLO_K})[0][1].toUpperCase();
+  G+='<text x="'+xl+'" y="14" text-anchor="end" fill="#57554C" style="letter-spacing:.12em;font-size:9.5px">RANKING OFICIAL</text>'
+    +'<text x="'+xr+'" y="14" fill="#57554C" style="letter-spacing:.12em;font-size:9.5px">'+esc(etq)+'</text>';
+  off.forEach(function(t){
+    var a=ofi[t.id],b=rk[t.id],ya=top+(a-1)*row,yb=top+(b-1)*row,dv=a-b,me=(SEL&&t.id===SEL);
+    if(Math.abs(dv)>=5)mov++;
+    if(!big||Math.abs(dv)>Math.abs(big.d))big={n:t.nombre,a:a,b:b,d:dv};
+    var c=me?'stroke="#0A0A0A" stroke-width="2.6"':dv>0?'stroke="#A84800" stroke-opacity=".8" stroke-width="1.3"':dv<0?'stroke="#0A0A0A" stroke-opacity=".22" stroke-width="1.1"':'stroke="#0A0A0A" stroke-opacity=".1" stroke-width="1"';
+    G+='<path d="M'+(xl+6)+' '+ya+'C'+(xl+90)+' '+ya+' '+(xr-90)+' '+yb+' '+(xr-6)+' '+yb+'" fill="none" '+c+'/>';
+  });
+  function nombre(t,i,x,anc){
+    var hl=(SEL&&t.id===SEL)||i<3,s=(i+1)+". "+(t.nombre.length>24?t.nombre.slice(0,23)+"…":t.nombre);
+    return '<text x="'+x+'" y="'+(top+i*row+3.5)+'"'+(anc?' text-anchor="end"':'')+' fill="'+(hl?"#0A0A0A":"#57554C")+'"'+(hl?' font-weight="600"':'')+'>'+esc(s)+'</text>';
+  }
+  off.forEach(function(t,i){G+=nombre(t,i,xl,true)});
+  alt.forEach(function(t,i){G+=nombre(t,i,xr,false)});
+  host.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Ranking oficial comparado con el ranking ordenado '+esc(etq.toLowerCase())+'">'+G+'</svg>';
+  var t2="<b>"+mov+" de "+N+"</b> carteras se moverían 5 puestos o más.";
+  if(big&&big.d!==0)t2+=" El mayor salto sería el de "+esc(big.n)+": del "+big.a+"° al "+big.b+"°.";
+  if(SEL&&rk[SEL]&&ofi[SEL]){var me2=eqPorId(SEL);t2+=" "+esc(me2.nombre)+" pasaría del "+ofi[SEL]+"° al <b>"+rk[SEL]+"°</b>."}
+  $("#soloRead").innerHTML=t2;
+  box.hidden=false;observeReveals(box.parentElement);
 }
 
 /* ---------------- Carga del ranking ---------------- */
@@ -2005,8 +2432,11 @@ function usarTorneo(d,esCompleto){
   pintarHeroMeta();
   pintarCinta();
   pintarPlano();
+  PL_ESC=null;             /* llegó otro archivo: la escala de la temporada se recalcula */
   pintarCorte();
+  pintarTuCartera();
   renderMetricas();
+  pintarSolo();
   renderTorneo();          /* refresca el nº de equipos de la ficha del torneo */
 }
 (function cargarRanking(){
@@ -2039,6 +2469,8 @@ function usarTorneo(d,esCompleto){
   var t=null;
   window.addEventListener("resize",function(){
     var plot=$("#chPlot");
+    var ph=$("#planoSvg"),ch=ph&&(ph.clientWidth<480);
+    if(ph&&TD&&ch!==ph._chico){ph._chico=ch;pintarPlano();}
     if(!plot||!CH_PTS||Math.abs((plot.clientWidth||0)-CH_W)<2)return;
     clearTimeout(t);t=setTimeout(pintarGrafico,180);
   },{passive:true});
@@ -2110,7 +2542,7 @@ function addActividadesNavLink(){
   if(t3&&!$('#rail a[href="#actividades"]')){
     var ra=document.createElement("a");
     ra.href="#actividades";
-    ra.innerHTML='<span class="rl-n">08</span><span class="rl-t">Actividades</span>';
+    ra.innerHTML='<span class="rl-n">09</span><span class="rl-t">Actividades</span>';
     t3.parentElement.insertBefore(ra,t3);
     sincRiel();
   }
